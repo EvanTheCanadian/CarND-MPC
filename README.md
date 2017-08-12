@@ -7,11 +7,17 @@
 I found this project to be one of the more difficult projects to date. I found myself relying heavily on the quiz from the lectures, as well as scouring the slack channels and forums to hunt down solutions to my various problems. I used a lot of the code I worked on from the quiz in this project, and it was really quite helpful. Other students were also very helpful and shared some insightful answers. The model follows the same pattern as used in the quiz, and makes use of the update equations described in the lectures:
 
 x_[t] = x[t-1] + v[t-1] * cos(psi[t-1]) * dt
+
 y_[t] = y[t-1] + v[t-1] * sin(psi[t-1]) * dt
+
 psi_[t] = psi[t-1] + v[t-1] / Lf * delta[t-1] * dt
+
 v_[t] = v[t-1] + a[t-1] * dt
+
 cte[t] = f(x[t-1]) - y[t-1] + v[t-1] * sin(epsi[t-1]) * dt
+
 epsi[t] = psi[t] - psides[t-1] + v[t-1] * delta[t-1] / Lf * dt
+
 
 In addition to the state values that are being updated above, there were two actuator values being optimized by the code: delta (steering angle) and throttle (acceleration).
 I started out using the same N and dt values used in the quiz, and was actually able to get things going when I turned off latency, but I felt like I didn't want to predict that far out, and also that my timestep should not be smaller than the latency, so I reduced N to 20, and increased dt to 0.1, which gave me a prediction horizon of 2. (Within the suggested range)
