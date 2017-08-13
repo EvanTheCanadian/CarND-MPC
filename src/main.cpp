@@ -125,7 +125,7 @@ int main() {
 		  
 		  px += v * cos(psi) * latency;
 		  py += v * sin(psi) * latency;
-		  psi += v * delta/ Lf * latency;
+		  psi += v * -delta/ Lf * latency;
 		  v += acceleration*latency;
 		  
 		  Eigen::VectorXd carWaypointsX = waypointsFromCar.row(0);
